@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oluwayemisi Babalola – Cloud Resume</title>
+  <meta name="description" content="Cloud Resume Challenge — Oluwayemisi Babalola. Software Engineer experienced in Python, JavaScript, SQL, AWS, Terraform, and serverless." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #fdf2f8; /* pastel pink */
+      --bg2: #e9d5ff; /* lavender */
+      --bg3: #dbeafe; /* baby blue */
+      --card: #ffffff; /* white cards */
+      --primary: #a855f7; /* purple-500 */
+      --primary-600: #7c3aed; /* purple-600 */
+      --accent: #ec4899; /* pink */
+      --accent-2: #f472b6; /* pink-400 */
+      --text: #312e81; /* indigo-900 */
+      --text-dim: #4338ca; /* indigo-700 */
+      --muted: #6b7280; /* slate */
+      --radius: 20px;
+      --shadow: 0 12px 28px rgba(168, 85, 247, .18), 0 2px 8px rgba(0,0,0,.06);
+      --shadow-soft: 0 8px 18px rgba(236, 72, 153, .12);
+      --grad: linear-gradient(135deg, #fbcfe8 0%, #e9d5ff 50%, #bfdbfe 100%);
+      --grad-soft: linear-gradient(135deg, rgba(249,168,212,.35), rgba(221,214,254,.35));
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:var(--text); background: var(--grad);}
+
+    a{color:var(--primary-600); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header / Nav */
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background:rgba(255,255,255,.75); border-bottom:1px solid rgba(124,58,237,.15)}
+    nav{display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:0 auto; padding:14px 20px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:44px; height:44px; border-radius:14px; background:var(--grad-soft); border:1px solid rgba(124,58,237,.25); display:grid; place-items:center; box-shadow:var(--shadow-soft); font-weight:800; color:var(--primary-600)}
+    .brand h1{font-size:18px; letter-spacing:.3px; margin:0; font-weight:700}
+    .nav-links{display:flex; gap:18px; font-family:'Quicksand',sans-serif; font-weight:600}
+    .btn{display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:white; padding:10px 16px; border-radius:14px; border:1px solid rgba(236,72,153,.25); box-shadow:var(--shadow-soft)}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Hero */
+    .hero{position:relative; padding:70px 0 40px}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center}
+    .badge{display:inline-flex; gap:8px; align-items:center; background:rgba(168,85,247,.14); color:var(--primary-600); border:1px solid rgba(124,58,237,.25); padding:8px 12px; border-radius:999px; font-size:12px; font-family:'Quicksand',sans-serif}
+    .title{font-size:44px; line-height:1.1; margin:16px 0; color:var(--primary-600)}
+    .subtitle{font-size:18px; color:#3f3d56}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,248,252,.95)); border:1px solid rgba(124,58,237,.18); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .avatar{width:100%; aspect-ratio:1; border-radius:22px; border:1px solid rgba(124,58,237,.2)}
+    
+    /* Floating sparkles */
+    .sparkles{position:absolute; inset:0; pointer-events:none; background-image: radial-gradient(circle at 15% 20%, rgba(255,255,255,.7) 0 2px, transparent 3px), radial-gradient(circle at 80% 30%, rgba(255,255,255,.7) 0 2px, transparent 3px), radial-gradient(circle at 60% 75%, rgba(255,255,255,.7) 0 2px, transparent 3px); background-repeat:no-repeat}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:26px; margin:0 0 20px; display:flex; align-items:center; gap:10px; color:var(--primary-600)}
+    .section-title .dot{width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 7px rgba(244,114,182,.25)}
+
+    /* Cards & grids */
+    .grid{display:grid; gap:18px}
+    .grid-2{grid-template-columns: repeat(2, minmax(0,1fr))}
+    .grid-3{grid-template-columns: repeat(3, minmax(0,1fr))}
+    .card{background:linear-gradient(180deg, #ffffff, #fff7fb); border:1px solid rgba(168,85,247,.18); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px; font-size:18px; color:#7e22ce}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(168,85,247,.25); background:rgba(221,214,254,.35); color:#6d28d9; font-size:12px; margin:4px 6px 0 0}
+
+    /* Timeline */
+    .timeline{position:relative; margin-left:14px}
+    .timeline:before{content:""; position:absolute; left:7px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--primary), transparent)}
+    .t-item{position:relative; margin-left:18px; padding-left:18px; margin-bottom:18px}
+    .t-item:before{content:""; position:absolute; left:-7px; top:6px; width:12px; height:12px; background:var(--accent); border-radius:50%; box-shadow:0 0 0 6px rgba(244,114,182,.12)}
+    .t-role{font-weight:700}
+    .t-meta{font-size:13px; color:var(--muted)}
+    .t-bullets{margin:10px 0; padding-left:18px}
+
+    /* Footer */
+    footer{padding:28px 0; border-top:1px solid rgba(124,58,237,.15); color:#5b5b7a; background:rgba(255,255,255,.6)}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .title{font-size:36px}
+      nav .nav-links{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">YB</div>
+        <h1>Oluwayemisi Babalola</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a class="btn" href="#contact" aria-label="Jump to contact">Contact</a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="sparkles" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Cloud Resume Challenge • Serverless • AWS</div>
+          <h2 class="title">Software Engineer building friendly products in the <span style="background:var(--grad-soft);padding:0 .4rem;border-radius:10px">cloud</span>.</h2>
+          <p class="subtitle">Python • JavaScript • SQL • AWS • Terraform • CI/CD</p>
+          <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn" href="#experience">Work Experience</a>
+          </div>
+          <div style="display:flex; gap:16px; margin-top:16px; flex-wrap:wrap; font-family:'Quicksand',sans-serif">
+            <div> <strong id="Visit-count">—</strong></div>
+            <div>📍 Brooklyn, NY </div>
+            <script src="./crc.js"></script>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img class="avatar" alt="Abstract pastel avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='40%25' r='70%25'%3E%3Cstop stop-color='%23e9d5ff'/%3E%3Cstop offset='1' stop-color='%23fdf2f8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3Ccircle cx='400' cy='320' r='160' fill='%23a855f7' opacity='.25'/%3E%3Ccircle cx='520' cy='480' r='120' fill='%23f472b6' opacity='.45'/%3E%3C/svg%3E"/>
+          <p class="subtitle" style="margin-top:14px">Open to Software/Cloud/DevOps roles • Let’s build resilient systems.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> About</h2>
+        <div class="card">
+          <p>Passionate Software Engineer with hands-on experience across the SDLC—feature conception, coding, testing, and deployment. Comfortable implementing secure RESTful APIs, building on AWS with Infrastructure as Code, and shipping with CI/CD.</p>
+          <p style="color:var(--muted)">Phone: <a href="tel:+19292568059">(929) 256‑8059</a> • Email: <a href="mailto:oyemisibabalola@gmail.com">oyemisibabalola@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> Experience</h2>
+        <div class="timeline">
+          <div class="t-item card">
+            <div class="t-role">Software Engineer Intern • Fireserv</div>
+            <div class="t-meta">Brooklyn, NY • Sept 2023 – May 2025</div>
+            <ul class="t-bullets">
+              <li>Developed internal and client‑facing web apps using Python and JavaScript for fire‑safety compliance.</li>
+              <li>Built secure RESTful APIs with authentication & role‑based access control for React frontends.</li>
+              <li>Designed and managed AWS infrastructure with Terraform/CloudFormation for reliable deployments.</li>
+              <li>Implemented CI/CD pipelines with GitHub Actions to automate tests and releases.</li>
+            </ul>
+          </div>
+          <div class="t-item card">
+            <div class="t-role">Machine Learning Research Intern • University at Buffalo</div>
+            <div class="t-meta">Buffalo, NY • May 2024 – Aug 2024</div>
+            <ul class="t-bullets">
+              <li>Researched Fourier Transform algorithms to speed up neural networks for real‑time scenarios.</li>
+              <li>Applied O(n log n) FFT approaches to optimize image/audio signal processing tasks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> Projects</h2>
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>AWS Cloud‑Resume Challenge</h3>
+            <p>Static website (HTML/CSS/JS) on S3 + CloudFront with Route 53. Serverless visitor counter via API Gateway → Lambda → DynamoDB. Automated deployments with Terraform and GitHub Actions. HTTPS via ACM; logs & metrics in CloudWatch.</p>
+            <div>
+              <span class="pill">AWS</span><span class="pill">S3</span><span class="pill">CloudFront</span><span class="pill">Route 53</span><span class="pill">Lambda</span><span class="pill">DynamoDB</span><span class="pill">Terraform</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Spam Email Detection</h3>
+            <p>Built ML pipeline in Python (pandas, scikit‑learn). Trained Naïve Bayes, Logistic Regression, and DNNs with cross‑validation & hyperparameter tuning to improve precision/recall.</p>
+            <div>
+              <span class="pill">Python</span><span class="pill">pandas</span><span class="pill">NLP</span><span class="pill">scikit‑learn</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> Skills & Tools</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Languages</h3>
+            <p><span class="pill">Python</span><span class="pill">Java</span><span class="pill">Scala</span><span class="pill">C/C++</span><span class="pill">SQL</span><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span></p>
+          </div>
+          <div class="card">
+            <h3>Dev & Cloud</h3>
+            <p><span class="pill">AWS</span><span class="pill">Terraform</span><span class="pill">Docker</span><span class="pill">GitHub Actions</span><span class="pill">REST APIs</span><span class="pill">MongoDB</span><span class="pill">Pytest</span><span class="pill">Selenium</span></p>
+          </div>
+          <div class="card">
+            <h3>Collab</h3>
+            <p><span class="pill">Jira</span><span class="pill">Postman</span><span class="pill">Confluence</span><span class="pill">Chrome DevTools</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> Education & Programs</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>University at Buffalo — B.S. in Computer Science</h3>
+            <p class="t-meta">Buffalo, NY</p>
+          </div>
+          <div class="card">
+            <h3>Leadership & Communities</h3>
+            <p><span class="pill">CSTEP</span><span class="pill">AWS She Builds Cloud Up</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title"><span class="dot"></span> Contact</h2>
+        <div class="card">
+          <p style="margin:0 0 10px">Have an opportunity or want to collaborate?</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn" href="mailto:oyemisibabalola@gmail.com">Email Me</a>
+            <a class="btn" href="tel:+19292568059">Call</a>
+            <a class="btn" href="#" id="download-resume">Download Resume (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div clas
